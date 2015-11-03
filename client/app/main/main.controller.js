@@ -16,7 +16,7 @@ angular.module('manaTicketApp')
       $scope.newThing = '';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteThing = function(index) {
+      $scope.awesomeThings.splice(index, 1);
     };
   });
