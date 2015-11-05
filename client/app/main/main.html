@@ -14,7 +14,7 @@
 
     <md-content class="event--list" layout="row" layout-align="space-between center" layout-wrap>
       <md-card class="event--list-item" ng-repeat="event in eventList | filter:search">
-        <img ng-src="{{event.image+'/'+$index}}" class="md-card-image" alt="event.title">
+        <img ng-src="{{event.image}}" class="md-card-image" alt="event.title">
         <md-card-content>
           <h2 class="md-title">{{event.title}}</h2>
         </md-card-content>
