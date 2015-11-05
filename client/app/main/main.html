@@ -1,37 +1,43 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit">
-  <h1>Bienvenidos a ManaTicket!</h1>
-  <p class="md-headline">Vamos a aprender Angular!</p>
-  <img src="assets/images/logoManati.png" alt="I'm Yeoman">
+<header class="hero-unit md-accent" layout="column">
+  <img src="assets/images/logoManati.png" alt="Estudio Manatí">
+  <md-input-container class="md-block" layout-padding>
+    <!-- Use floating label instead of placeholder -->
+    <label>Search</label>
+    <input ng-model="search" type="text">
+  </md-input-container>
 </header>
 
 <md-content class="container" layout="column" layout-padding>
   <div class="row">
 
-    <md-whiteframe class="md-whiteframe-3dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
-      <h1 ng-if="awesomeThings.length !== 0">Features: {{awesomeThings.length}}</h1>
-      <br>
-      <h1 ng-if="awesomeThings.length === 0"> No más!!</h1>
-    </md-whiteframe>
+    <md-content class="event--list" layout="row" layout-align="space-between center" layout-wrap>
+      <md-card class="event--list-item" ng-repeat="event in eventList | filter:search">
+        <img ng-src="{{event.image+'/'+$index}}" class="md-card-image" alt="event.title">
+        <md-card-content>
+          <h2 class="md-title">{{event.title}}</h2>
+        </md-card-content>
 
-    <md-list class="features--list" layout="row" layout-align="space-between center" layout-wrap>
-
-      <md-list-item class="features--list-item" ng-repeat="thing in awesomeThings">
-        <md-button aria-label="thing button md-avatar" class="md-fab md-warn" ng-click="deleteThing($index)">
-          <i class="fa fa-times"></i>
-        </md-button>
-        <div class="md-list-item-text" href="#" tooltip="{{thing.info}}">{{thing.name}}</div>
-      </md-list-item>
-
-    </md-list>
+        <md-card-footer>
+          <md-chips>
+            <md-chip>
+              <i class="fa"
+                 ng-class="{
+                   'fa-music': event.eventType === 'Concierto',
+                   'fa-television': event.eventType === 'Cine',
+                   'fa-user-secret': event.eventType === 'Teatro',
+                   'fa-headphones': event.eventType === 'Recital'
+                 }"></i> {{event.eventType}}
+            </md-chip>
+            <md-chip>Desde: <strong>{{event.basePrice | currency}}</strong></md-chip>
+          </md-chips>
+          <span layout-padding am-time-ago="event.startTime"></span>
+          <div>{{event.startTime | amDateFormat:'DD [de] MMMM YYYY'}}</div>     </md-card-footer>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-primary md-raised">Reservar</md-button>
+        </div>
+      </md-card>
+    </md-content>
   </div>
 </md-content>
-
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.1.1 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>

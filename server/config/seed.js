@@ -5,28 +5,42 @@
 
 'use strict';
 
-var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Evento = require('../api/evento/evento.model');
 
-Thing.find({}).remove(function() {
-  Thing.create({
-    name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
-  }, {
-    name : 'Server and Client integration',
-    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
-  }, {
-    name : 'Smart Build System',
-    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
-  },  {
-    name : 'Modular Structure',
-    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
-  },  {
-    name : 'Optimized Build',
-    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
+Evento.find({}).remove(function() {
+  Evento.create({
+    title: 'Tributo a Thelonious Monk',
+    body: '<div><p><span>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</span> <span>Ab illo tempore, ab est sed immemorabili.</span> <span>Nihil hic munitissimus habendi senatus locus, nihil horum?</span> <span>Hi omnes lingua, institutis, legibus inter se differunt.</span> <span>Tu quoque, Brute, fili mi, nihil timor populi, nihil!</span> <span>Magna pars studiorum, prodita quaerimus.</span></p><p><span>Unam incolunt Belgae, aliam Aquitani, tertiam.</span> <span>Fabio vel iudice vincam, sunt in culpa qui officia.</span> <span>Cum ceteris in veneratione tui montes, nascetur mus.</span> <span>Quisque placerat facilisis egestas cillum dolore.</span> <span>Integer legentibus erat a ante historiarum dapibus.</span></p><p><span>Quam diu etiam furor iste tuus nos eludet?</span> <span>At nos hinc posthac, sitientis piros Afros.</span> <span>Paullum deliquit, ponderibus modulisque suis ratio utitur.</span> <span>Quae vero auctorem tractata ab fiducia dicuntur.</span> <span>Donec sed odio operae, eu vulputate felis rhoncus.</span> <span>Etiam habebis sem dicantur magna mollis euismod.</span></p></div>',
+    image: 'http://lorempixel.com/400/200/nightlife',
+    eventType: 'Concierto',
+    basePrice: 50,
+    startTime: new Date('2015-11-11T23:00:00.000Z'),
+    endTime: new Date('2015-11-12T03:00:00.000Z')
   },{
-    name : 'Deployment Ready',
-    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+    title: 'Cuarteto de Vientos Aquarium Marenostrum',
+    body: '<div><p><span>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</span> <span>Ab illo tempore, ab est sed immemorabili.</span> <span>Nihil hic munitissimus habendi senatus locus, nihil horum?</span> <span>Hi omnes lingua, institutis, legibus inter se differunt.</span> <span>Tu quoque, Brute, fili mi, nihil timor populi, nihil!</span> <span>Magna pars studiorum, prodita quaerimus.</span></p><p><span>Unam incolunt Belgae, aliam Aquitani, tertiam.</span> <span>Fabio vel iudice vincam, sunt in culpa qui officia.</span> <span>Cum ceteris in veneratione tui montes, nascetur mus.</span> <span>Quisque placerat facilisis egestas cillum dolore.</span> <span>Integer legentibus erat a ante historiarum dapibus.</span></p><p><span>Quam diu etiam furor iste tuus nos eludet?</span> <span>At nos hinc posthac, sitientis piros Afros.</span> <span>Paullum deliquit, ponderibus modulisque suis ratio utitur.</span> <span>Quae vero auctorem tractata ab fiducia dicuntur.</span> <span>Donec sed odio operae, eu vulputate felis rhoncus.</span> <span>Etiam habebis sem dicantur magna mollis euismod.</span></p></div>',
+    image: 'http://lorempixel.com/400/200/nightlife',
+    eventType: 'Recital',
+    basePrice: 79.50,
+    startTime: new Date('2015-11-13T23:00:00.000Z'),
+    endTime: new Date('2015-11-14T03:00:00.000Z')
+  },{
+    title: 'El testamento del perro',
+    body: '<div><p><span>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</span> <span>Ab illo tempore, ab est sed immemorabili.</span> <span>Nihil hic munitissimus habendi senatus locus, nihil horum?</span> <span>Hi omnes lingua, institutis, legibus inter se differunt.</span> <span>Tu quoque, Brute, fili mi, nihil timor populi, nihil!</span> <span>Magna pars studiorum, prodita quaerimus.</span></p><p><span>Unam incolunt Belgae, aliam Aquitani, tertiam.</span> <span>Fabio vel iudice vincam, sunt in culpa qui officia.</span> <span>Cum ceteris in veneratione tui montes, nascetur mus.</span> <span>Quisque placerat facilisis egestas cillum dolore.</span> <span>Integer legentibus erat a ante historiarum dapibus.</span></p><p><span>Quam diu etiam furor iste tuus nos eludet?</span> <span>At nos hinc posthac, sitientis piros Afros.</span> <span>Paullum deliquit, ponderibus modulisque suis ratio utitur.</span> <span>Quae vero auctorem tractata ab fiducia dicuntur.</span> <span>Donec sed odio operae, eu vulputate felis rhoncus.</span> <span>Etiam habebis sem dicantur magna mollis euismod.</span></p></div>',
+    image: 'http://lorempixel.com/400/200/nightlife',
+    eventType: 'Teatro',
+    basePrice: 10,
+    startTime: new Date('2015-11-18T23:00:00.000Z'),
+    endTime: new Date('2015-11-19T03:00:00.000Z')
+  },{
+    title: 'Rocky vs Rambo',
+    body: '<div><p><span>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</span> <span>Ab illo tempore, ab est sed immemorabili.</span> <span>Nihil hic munitissimus habendi senatus locus, nihil horum?</span> <span>Hi omnes lingua, institutis, legibus inter se differunt.</span> <span>Tu quoque, Brute, fili mi, nihil timor populi, nihil!</span> <span>Magna pars studiorum, prodita quaerimus.</span></p><p><span>Unam incolunt Belgae, aliam Aquitani, tertiam.</span> <span>Fabio vel iudice vincam, sunt in culpa qui officia.</span> <span>Cum ceteris in veneratione tui montes, nascetur mus.</span> <span>Quisque placerat facilisis egestas cillum dolore.</span> <span>Integer legentibus erat a ante historiarum dapibus.</span></p><p><span>Quam diu etiam furor iste tuus nos eludet?</span> <span>At nos hinc posthac, sitientis piros Afros.</span> <span>Paullum deliquit, ponderibus modulisque suis ratio utitur.</span> <span>Quae vero auctorem tractata ab fiducia dicuntur.</span> <span>Donec sed odio operae, eu vulputate felis rhoncus.</span> <span>Etiam habebis sem dicantur magna mollis euismod.</span></p></div>',
+    image: 'http://lorempixel.com/400/200/nightlife',
+    eventType: 'Cine',
+    basePrice: 25,
+    startTime: new Date('2015-11-18T23:00:00.000Z'),
+    endTime: new Date('2015-11-19T03:00:00.000Z')
   });
 });
 

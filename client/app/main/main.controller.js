@@ -1,22 +1,12 @@
 'use strict';
 
 angular.module('manaTicketApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $http, $moment, DataService) {
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
+    DataService.getEvents().then(function(eventList) {
+      $scope.eventList = eventList.data;
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
+    $moment.locale('es');
 
-    $scope.deleteThing = function(index) {
-      $scope.awesomeThings.splice(index, 1);
-    };
   });

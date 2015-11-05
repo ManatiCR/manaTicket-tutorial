@@ -5,7 +5,8 @@ angular.module('manaTicketApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ngMaterial'
+  'ngMaterial',
+  'angular-momentjs'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
     $urlRouterProvider
@@ -16,7 +17,7 @@ angular.module('manaTicketApp', [
 
     $mdThemingProvider.theme('default')
       .primaryPalette('teal')
-      .accentPalette('cyan');
+      .accentPalette('blue-grey');
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

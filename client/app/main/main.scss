@@ -1,10 +1,25 @@
 .hero-unit {
-    text-align: center;
+    text-align: left;
     background: #CDFBF5;
     color: RGBA(51, 66, 83, 1);
     padding: 1px;
 
     img {
-        width: 200px;
+        width: 150px;
+        margin: 20px auto;
     }
+}
+
+.event--list-item {
+    max-width: 290px;
+    align-self: stretch;
+}
+
+.event--list-item-body.collapsed {
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.event--list-item-body.expanded {
+    max-height: 100%;
 }
