@@ -1,0 +1,24 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<md-content>
+	<header class="event--hero">
+		<img src="{{event.image}}" alt="" class="event--hero-image">
+		<div class="event--hero-title md-display-4" layout="row" layout-align="center center">
+			<span class="event--hero-type md-headline">{{event.eventType}}</span>
+			<span class="event--hero-title-text">{{event.title}}</span>
+			<md-button class="event--hero-cta md-raised md-warn md-accent">¡Quiero Ir!</md-button>
+		</div>
+	</header>
+</md-content>
+<md-divider></md-divider>
+<md-content layout-padding layout="column" layout-align="start center">
+	<div class="event--date">
+		<span class="event--date-day md-display-3">{{event.startTime | amDateFormat:'dddd DD [de] MMMM'}} </span>
+		<md-divider></md-divider>
+		<span class="event--date-start-time md-display-1">A partir de las {{event.startTime | amDateFormat:'hh:mm a'}}</span>
+	</div>
+	<div ng-bind-html="event.body" class="event--body"></div>
+	<md-divider></md-divider>
+	<div class="event--price md-title">
+		Entradas desde {{event.basePrice | currency}}
+	</div>
+</md-content>

@@ -7,6 +7,9 @@ angular.module('manaTicketApp')
     return {
       getEvents: function() {
         return $http.get('/api/eventos');
+      },
+      getEventById: function(id) {
+        return $http.get('/api/eventos/'+id);
       }
     };
   });

@@ -35,7 +35,7 @@
           <span layout-padding am-time-ago="event.startTime"></span>
           <div>{{event.startTime | amDateFormat:'DD [de] MMMM YYYY'}}</div>     </md-card-footer>
         <div class="md-actions" layout="row" layout-align="end center">
-          <md-button class="md-primary md-raised">Reservar</md-button>
+          <md-button class="md-primary md-raised" ui-sref="evento({id: event._id, data: event})">Reservar</md-button>
         </div>
       </md-card>
     </md-content>
