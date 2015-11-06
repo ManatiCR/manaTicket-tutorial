@@ -10,6 +10,9 @@ angular.module('manaTicketApp')
       },
       getEventById: function(id) {
         return $http.get('/api/eventos/'+id);
+      },
+      saveEvent: function(id, data) {
+        return $http.put('/api/eventos/'+id, data);
       }
     };
   });

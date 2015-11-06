@@ -25,6 +25,7 @@ module.exports = function(config) {
       'client/bower_components/angular-material/angular-material.js',
       'client/bower_components/moment/moment.js',
       'client/bower_components/angular-momentjs/angular-momentjs.js',
+      'client/bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
       'client/app/app.js',
       'client/app/app.coffee',
       'client/app/**/*.js',

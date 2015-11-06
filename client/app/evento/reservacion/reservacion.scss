@@ -1,0 +1,75 @@
+.butacas--section {
+  margin: 0 20px;
+}
+
+.infobar {
+  position: relative;
+  width: 250px;
+  flex-shrink: 0;
+  align-self: stretch;
+
+  &:before {
+    content: " ";
+    background: black;
+    height: 80%;
+    width: 1px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.infobar--highlighted-location-id {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-family: 'Paytone One', sans-serif;
+  font-size: 40px;
+  opacity: 0.7;
+}
+
+.infobar--highlighted-location-price {
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Paytone One', sans-serif;
+  font-size: 70px;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+.infobar--total-ammount {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.reservacion--modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+
+  background: rgba(0,0,0,0.7);
+}
+
+.reservacion--modal-title {
+  font-size: 4vw;
+  text-align: center;
+}
+
+.reservacion--option {
+  font-size: 2vw;
+  padding: 10px;
+}
+
+.reservacion--modal-form {
+  width: 50%;
+}
+
+.reservacion--modal-prompt {
+  margin: 20px 0;
+}

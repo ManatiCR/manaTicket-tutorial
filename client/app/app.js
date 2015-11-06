@@ -6,7 +6,8 @@ angular.module('manaTicketApp', [
   'ngSanitize',
   'ui.router',
   'ngMaterial',
-  'angular-momentjs'
+  'angular-momentjs',
+  'ui-notification'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
     $urlRouterProvider

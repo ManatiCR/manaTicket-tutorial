@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Paytone+One);
 
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
@@ -19,7 +20,9 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'evento/evento.scss';
+@import 'evento/reservacion/reservacion.scss';
 @import 'main/main.scss';
+@import 'butaca/butaca.scss';
 // endinjector
 
 .navbar--app-title {

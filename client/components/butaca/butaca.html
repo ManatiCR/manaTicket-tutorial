@@ -1,0 +1,6 @@
+<md-button  class="md-fab butaca--btn"
+            ng-class="{'md-primary': !location.reserved, 'md-warn': location.reserved}"
+            ng-click="itemClick(location)"
+            ng-disabled="location.for !== null">
+  {{location.code}}-{{location.seatNumber}}
+</md-button>

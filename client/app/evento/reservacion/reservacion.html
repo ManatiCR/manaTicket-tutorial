@@ -1,0 +1,53 @@
+<md-content layout="row" layout-align="space-between center" layout-padding>
+	<section class="locations">
+    <md-button ng-click="back()" class="md-warn md-raised"><i class="fa fa-arrow-left"></i> Ver Info</md-button>
+    <div layout="row" layout-align="space-between center" class="bucatas">
+      <div class="butacas--section general" layout="column" layout-align="center center">
+        <h3 class="md-display-1">General</h3>
+        <div class="butacas--section-list" layout="row" layout-wrap layout-align="space-around start">
+          <butaca ng-repeat="item in event.locations.general" location="item" number="$index" ng-mouseenter="highlight(item)" ng-mouseleave="clearHighlight()" on-click="toggleInTotal(item, event.basePrice)"></butaca>
+        </div>
+      </div>
+      <div class="butacas--section vip" layout="column" layout-align="center center">
+        <h3 class="md-display-1">VIP</h3>
+        <div class="butacas--section-list" layout="row" layout-wrap layout-align="space-around start">
+          <butaca ng-repeat="item in event.locations.vip" location="item" number="$index" ng-mouseenter="highlight(item)" ng-mouseleave="clearHighlight()" on-click="toggleInTotal(item, event.basePrice)"></butaca>
+        </div>
+      </div>
+      <div class="butacas--section luneta" layout="column" layout-align="center center">
+        <h3 class="md-display-1">Luneta</h3>
+        <div class="butacas--section-list" layout="row" layout-wrap layout-align="space-around start">
+          <butaca ng-repeat="item in event.locations.luneta" location="item" number="$index" ng-mouseenter="highlight(item)" ng-mouseleave="clearHighlight()" on-click="toggleInTotal(item, event.basePrice)"></butaca>
+        </div>
+      </div>
+    </div>
+  </section>
+	<md-tabs class="infobar md-primary">
+   <md-tab label="Detail" class="infobar--highlighted-location" ng-if="highlightedLocation">
+     <div class="infobar--highlighted-location-id">{{highlightedLocation.code}}-{{highlightedLocation.seatNumber}}</div>
+     <div class="infobar--highlighted-location-price">{{calculatePrice(highlightedLocation, event.basePrice)|currency}}</div>
+   </md-tab>
+   <md-tab label="Total" class="infobar--highlighted-location">
+    <md-content layout="column" layout-align="center center">
+      <div class="infobar--total-ammount md-display-1">{{total|currency}}</div>
+      <md-button class="md-raised md-warn" ng-if="total > 0" ng-click="openModal()">Comprar</md-button>
+    </md-content>
+   </md-tab>
+  </md-tabs>
+</md-content>
+
+<section class="reservacion--modal" ng-if="modalIsActive" layout="column" layout-align="center center">
+  <md-content class="reservacion--modal-form" layout-padding layout="column">
+    <span class="reservacion--modal-title">Gracias por comprar con nosotros <i class="fa fa-hand-peace-o"></i></span>
+    <md-divider></md-divider>
+    <span class="reservacion--modal-prompt md-display-1">¿A nombre de quién reservamos las entradas?</span>
+    <md-input-container>
+      <label>Su Nombre</label>
+      <input ng-model="userName">
+    </md-input-container>
+    <div layout="row" layout-align="space-around center">
+      <md-button class="reservacion--option md-raised md-warn" ng-disabled="!userName" ng-click="salvar(userName)">Comprar</md-button>
+      <md-button class="reservacion--option md-raised" ng-click="closeModal()">Cancelar</md-button>
+    </div>
+  </md-content>
+</section>

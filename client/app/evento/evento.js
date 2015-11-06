@@ -10,5 +10,14 @@ angular.module('manaTicketApp')
         },
         templateUrl: 'app/evento/evento.html',
         controller: 'EventoCtrl'
+      })
+      .state('evento.reservacion', {
+        url: '/reservacion',
+        views: {
+          'info': {
+            templateUrl: 'app/evento/reservacion/reservacion.html',
+            controller: 'ReservacionCtrl'
+          }
+        }
       });
   });
