@@ -84,8 +84,8 @@ Evento.find({}).remove(function() {
     image: 'http://lorempixel.com/400/200/nightlife/1',
     eventType: 'Concierto',
     basePrice: 50,
-    startTime: new Date('2015-11-11T23:00:00.000Z'),
-    endTime: new Date('2015-11-12T03:00:00.000Z'),
+    startTime: new Date('2015-11-12T23:00:00.000Z'),
+    endTime: new Date('2015-11-13T03:00:00.000Z'),
     locations: locations
   },{
     title: 'Cuarteto de Vientos Aquarium Marenostrum',

@@ -47,13 +47,14 @@ angular.module('manaTicketApp', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+  .run(function ($rootScope, $location, $state, Auth) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
+          $location.nextAfterLogin = $location.path();
           event.preventDefault();
-          $location.path('/login');
+          $state.go('login');
         }
       });
     });

@@ -18,6 +18,7 @@ angular.module('manaTicketApp')
             templateUrl: 'app/evento/reservacion/reservacion.html',
             controller: 'ReservacionCtrl'
           }
-        }
+        },
+        authenticate: true
       });
   });

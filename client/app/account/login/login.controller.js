@@ -15,7 +15,9 @@ angular.module('manaTicketApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          var next = $location.nextAfterLogin || '/';
+          $location.nextAfterLogin = null;
+          $location.path(next);
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
