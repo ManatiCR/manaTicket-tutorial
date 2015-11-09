@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('manaTicketApp')
-  .controller('EventoCtrl', function ($scope, $stateParams, $state, DataService, Notification) {
+  .controller('EventoCtrl', function ($scope, $stateParams, $state, $filter, DataService, Notification) {
     if (!$stateParams.id) {
       $state.go('main');
     } else if (!$stateParams.data) {
@@ -17,12 +17,6 @@ angular.module('manaTicketApp')
     } else {
       $scope.event = $stateParams.data;
     }
-
-    var priceRates = {
-      VIP: 1.5,
-      GEN: 1,
-      LUN: 1.75
-    };
 
     $scope.total = 0;
     $scope.modalIsActive = false;
@@ -43,18 +37,14 @@ angular.module('manaTicketApp')
       $scope.highlightedLocation = null;
     };
 
-    $scope.calculatePrice = function(item, basePrice) {
-      return basePrice*priceRates[item.code] || 0;
-    };
-
     $scope.toggleInTotal = function(item, basePrice) {
       if (item.reserved && (null === item.for)) {
-        $scope.total += $scope.calculatePrice(item, basePrice);
+        $scope.total += $filter('seatPrice')(item, basePrice);
         if ($scope.highlightedLocation === item) {
           $scope.highlightedLocation = null;
         }
       } else if (!item.reserved && (null === item.for)) {
-        $scope.total -= $scope.calculatePrice(item, basePrice);
+        $scope.total -= $filter('seatPrice')(item, basePrice);
       }
 
       if ($scope.total < 0) {

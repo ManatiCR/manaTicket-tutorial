@@ -25,7 +25,7 @@
 	<md-tabs class="infobar md-primary">
    <md-tab label="Detail" class="infobar--highlighted-location" ng-if="highlightedLocation">
      <div class="infobar--highlighted-location-id">{{highlightedLocation.code}}-{{highlightedLocation.seatNumber}}</div>
-     <div class="infobar--highlighted-location-price">{{calculatePrice(highlightedLocation, event.basePrice)|currency}}</div>
+     <div class="infobar--highlighted-location-price">{{highlightedLocation| seatPrice: event.basePrice|currency}}</div>
    </md-tab>
    <md-tab label="Total" class="infobar--highlighted-location">
     <md-content layout="column" layout-align="center center">
