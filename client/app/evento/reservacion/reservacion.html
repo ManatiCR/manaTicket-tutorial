@@ -40,13 +40,9 @@
   <md-content class="reservacion--modal-form" layout-padding layout="column">
     <span class="reservacion--modal-title">Gracias por comprar con nosotros <i class="fa fa-hand-peace-o"></i></span>
     <md-divider></md-divider>
-    <span class="reservacion--modal-prompt md-display-1">¿A nombre de quién reservamos las entradas?</span>
-    <md-input-container>
-      <label>Su Nombre</label>
-      <input ng-model="userName">
-    </md-input-container>
+    <span class="reservacion--modal-prompt md-display-1">Las entradas serán reservadas a nombre de <strong>{{currentUser.name}}</strong> </span>
     <div layout="row" layout-align="space-around center">
-      <md-button class="reservacion--option md-raised md-warn" ng-disabled="!userName" ng-click="salvar(userName)">Comprar</md-button>
+      <md-button class="reservacion--option md-raised md-warn" ng-click="salvar(userName)">Comprar</md-button>
       <md-button class="reservacion--option md-raised" ng-click="closeModal()">Cancelar</md-button>
     </div>
   </md-content>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('manaTicketApp')
-  .controller('EventoCtrl', function ($scope, $stateParams, $state, $filter, DataService, Notification) {
+  .controller('EventoCtrl', function ($scope, $stateParams, $state, $filter, Auth, DataService, Notification) {
     if (!$stateParams.id) {
       $state.go('main');
     } else if (!$stateParams.data) {
@@ -20,6 +20,7 @@ angular.module('manaTicketApp')
 
     $scope.total = 0;
     $scope.modalIsActive = false;
+    $scope.currentUser = Auth.getCurrentUser();
 
     $scope.stateIncludes = $state.includes;
 
@@ -52,11 +53,11 @@ angular.module('manaTicketApp')
       }
     };
 
-    $scope.salvar = function(userName) {
+    $scope.salvar = function() {
       Object.keys($scope.event.locations).forEach(function(key) {
         $scope.event.locations[key].forEach(function (loc) {
           if (loc.reserved && null === loc.for) {
-            loc.for = userName;
+            loc.for = $scope.currentUser.name;
           }
         });
       });
