@@ -2,4 +2,8 @@
   <md-toolbar-tools ui-sref="main">
     <h2 class="navbar--app-title"><i class="fa fa-ticket"></i>&nbsp;<span>ManaTicket</span></h2>
   </md-toolbar-tools>
+  <div class="navbar--username" ng-show="isLoggedIn && userName" layout="row">
+    <h3>Hola {{userName}}</h3>
+    <md-button class="md-accent" ng-click="logout()">Logout</md-button>
+  </div>
 </md-toolbar>

@@ -37,13 +37,17 @@
 </md-content>
 
 <section class="reservacion--modal" ng-if="modalIsActive" layout="column" layout-align="center center">
-  <md-content class="reservacion--modal-form" layout-padding layout="column">
+  <md-content class="reservacion--modal-form" layout-padding layout="column" ng-if="progress > 99">
     <span class="reservacion--modal-title">Gracias por comprar con nosotros <i class="fa fa-hand-peace-o"></i></span>
     <md-divider></md-divider>
-    <span class="reservacion--modal-prompt md-display-1">Las entradas serán reservadas a nombre de <strong>{{currentUser.name}}</strong> </span>
+    <span class="reservacion--modal-prompt md-display-1">Las entradas serán reservadas a nombre de <strong>{{currentUser.label}}</strong> </span>
     <div layout="row" layout-align="space-around center">
       <md-button class="reservacion--option md-raised md-warn" ng-click="salvar(userName)">Comprar</md-button>
       <md-button class="reservacion--option md-raised" ng-click="closeModal()">Cancelar</md-button>
     </div>
+  </md-content>
+  <md-content class="reservacion--modal-form" layout-padding layout="column" layout-align="center center" ng-if="progress < 100">
+    <span class="reservacion--modal-title">Procesando... <i class="fa fa-hand-peace-o"></i></span>
+    <md-progress-circular md-mode="indeterminate" value="{{progress}}" md-diameter="96px"></md-progress-circular>
   </md-content>
 </section>

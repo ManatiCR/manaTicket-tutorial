@@ -3,14 +3,14 @@
 	<header class="event--hero">
 		<img src="{{event.image}}" alt="" class="event--hero-image">
 		<div class="event--hero-title md-display-4" layout="row" layout-align="center center">
-			<span class="event--hero-type md-headline">{{event.eventType}}{{userName}}</span>
+			<span class="event--hero-type md-headline">{{event.eventType.type}}{{userName}}</span>
 			<span class="event--hero-title-text">{{event.title}}</span>
 			<md-button class="event--hero-cta md-raised md-warn md-accent" ng-click="reservar()" ng-if="!stateIncludes('evento.reservacion')">¡Quiero Ir!</md-button>
 		</div>
 	</header>
 </md-content>
 <md-divider></md-divider>
-<section ui-view="info">
+<section ui-view="info" ng-hide="loadingData">
 	<md-content layout-padding layout="column" layout-align="start center">
 		<div class="event--date">
 			<span class="event--date-day md-display-3">{{event.startTime | amDateFormat:'dddd DD [de] MMMM'}} </span>
@@ -24,3 +24,7 @@
 		</div>
 	</md-content>
 </section>
+<div class="spinner" ng-show="loadingData" layout="column" layout-align="center center">
+	<h3 class="md-display-3">Cargando...</h3>
+	<md-progress-circular md-diameter="200px" md-mode="indeterminate"></md-progress-circular>
+</div>

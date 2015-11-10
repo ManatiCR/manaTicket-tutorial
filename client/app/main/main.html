@@ -2,14 +2,18 @@
 
 <header class="hero-unit md-accent" layout="column">
   <img src="assets/images/logoManati.png" alt="Estudio Manatí">
-  <md-input-container class="md-block" layout-padding>
+  <md-input-container class="md-block" layout-padding ng-hide="loadingData">
     <!-- Use floating label instead of placeholder -->
     <label>Search</label>
     <input ng-model="search" type="text">
   </md-input-container>
+  <div class="spinner" ng-show="loadingData" layout="column" layout-align="center center">
+    <h3 class="md-display-3">Cargando...</h3>
+    <md-progress-circular md-diameter="100px" md-mode="indeterminate"></md-progress-circular>
+  </div>
 </header>
 
-<md-content class="container" layout="column" layout-padding>
+<md-content class="container" layout="column" layout-padding ng-hide="loadingData">
   <div class="row">
 
     <md-content class="event--list" layout="row" layout-align="space-between center" layout-wrap>
@@ -28,14 +32,14 @@
                    'fa-television': event.eventType === 'Cine',
                    'fa-user-secret': event.eventType === 'Teatro',
                    'fa-headphones': event.eventType === 'Recital'
-                 }"></i> {{event.eventType}}
+                 }"></i> {{event.eventType.type}}
             </md-chip>
             <md-chip>Desde: <strong>{{event.basePrice | currency}}</strong></md-chip>
           </md-chips>
           <span layout-padding am-time-ago="event.startTime"></span>
           <div>{{event.startTime | amDateFormat:'DD [de] MMMM YYYY'}}</div>     </md-card-footer>
         <div class="md-actions" layout="row" layout-align="end center">
-          <md-button class="md-primary md-raised" ui-sref="evento({id: event._id, data: event})">Reservar</md-button>
+          <md-button class="md-primary md-raised" ui-sref="evento({id: event.id, data: event})">Reservar</md-button>
         </div>
       </md-card>
     </md-content>

@@ -9,6 +9,11 @@ angular.module('manaTicketApp', [
   'angular-momentjs',
   'ui-notification'
 ])
+  .value('DrupalSettings', {
+    sitePath: 'http://drupal-workshop.blogmanati.tk/',
+    endPoint: 'api/v0.1/',
+    user:  'users/'
+  })
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
     $urlRouterProvider
       .otherwise('/');
@@ -27,7 +32,8 @@ angular.module('manaTicketApp', [
       request: function (config) {
         config.headers = config.headers || {};
         if ($cookieStore.get('token')) {
-          config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
+          /*jshint camelcase: false */
+          config.headers.access_token = $cookieStore.get('token');
         }
         return config;
       },

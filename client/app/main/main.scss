@@ -13,6 +13,10 @@
 .event--list-item {
     max-width: 290px;
     align-self: stretch;
+
+    .md-card-image {
+        max-height: 200px;
+    }
 }
 
 .event--list-item-body.collapsed {
