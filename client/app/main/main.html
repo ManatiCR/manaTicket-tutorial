@@ -28,10 +28,10 @@
             <md-chip>
               <i class="fa"
                  ng-class="{
-                   'fa-music': event.eventType === 'Concierto',
-                   'fa-television': event.eventType === 'Cine',
-                   'fa-user-secret': event.eventType === 'Teatro',
-                   'fa-headphones': event.eventType === 'Recital'
+                   'fa-music': event.eventType.type === 'Concierto',
+                   'fa-television': event.eventType.type === 'Cine',
+                   'fa-user-secret': event.eventType.type === 'Teatro',
+                   'fa-headphones': event.eventType.type === 'Recital'
                  }"></i> {{event.eventType.type}}
             </md-chip>
             <md-chip>Desde: <strong>{{event.basePrice | currency}}</strong></md-chip>
