@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('manaTicketApp')
-  .factory('User', function ($resource) {
-    return $resource('/api/users/:id/:controller', {
+  .factory('User', function ($resource, DrupalSettings) {
+    return $resource(DrupalSettings.sitePath+'api/users/:id', {
       id: '@_id'
     },
     {
@@ -15,7 +15,10 @@ angular.module('manaTicketApp')
       get: {
         method: 'GET',
         params: {
-          id:'me'
+          id:'me',
+        },
+        transformResponse: function(res) {
+          return JSON.parse(res).data[0];
         }
       }
 	  });

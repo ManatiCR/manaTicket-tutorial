@@ -29,3 +29,15 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     font-weight: 300;
     margin: 10px;
 }
+
+.navbar--username {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+
+/* when showing elements */
+.ng-hide-remove      { animation:0.5s fadeIn ease; }
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }

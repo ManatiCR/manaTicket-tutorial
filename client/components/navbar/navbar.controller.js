@@ -8,9 +8,18 @@ angular.module('manaTicketApp')
     }];
 
     $scope.isCollapsed = true;
-    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isLoggedIn = false;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+
+    Auth.isLoggedInAsync(function(loggedIn) {
+      if (loggedIn) {
+        Auth.getCurrentUser().$promise.then(function(user) {
+          $scope.isLoggedIn = true;
+          $scope.userName = user.label;
+        });
+      }
+    });
 
     $scope.logout = function() {
       Auth.logout();
