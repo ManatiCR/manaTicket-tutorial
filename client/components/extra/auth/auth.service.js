@@ -194,7 +194,11 @@ angular.module('manaTicketApp')
       isLoggedInAsync: function(cb) {
         if(currentUser.hasOwnProperty('$promise')) {
           currentUser.$promise.then(function() {
-            cb(true);
+            if (currentUser.hasOwnProperty('id')) {
+              cb(true);
+            } else {
+              cb(false);
+            }
           }).catch(function() {
             cb(false);
           });
